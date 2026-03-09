@@ -1,0 +1,101 @@
+{
+  "name": "token-scope-exporter",
+  "displayName": "Token Scope Exporter",
+  "description": "Export semantic tokens and TextMate scopes for any file as structured YAML or JSON. Built for LLM prompts, theme debugging, and grammar development.",
+  "version": "0.0.1",
+  "publisher": "NikolaiFedorov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Unril/token-scope-exporter"
+  },
+  "bugs": {
+    "url": "https://github.com/Unril/token-scope-exporter/issues"
+  },
+  "homepage": "https://github.com/Unril/token-scope-exporter",
+  "license": "MIT",
+  "icon": "img/icon.png",
+  "galleryBanner": {
+    "color": "#0A1424",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "semantic tokens",
+    "textmate scopes",
+    "token inspector",
+    "scope inspector",
+    "syntax highlighting",
+    "LLM",
+    "theme debugging",
+    "grammar development"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tokenScopeExporter.exportActiveFile",
+        "title": "Token Scope Exporter: Export Active File"
+      }
+    ],
+    "configuration": {
+      "title": "Token Scope Exporter",
+      "properties": {
+        "tokenScopeExporter.outputFormat": {
+          "type": "string",
+          "enum": [
+            "yaml",
+            "json"
+          ],
+          "default": "yaml",
+          "description": "Output format for token exports."
+        },
+        "tokenScopeExporter.includeWhitespace": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include pure-whitespace segments in the export."
+        },
+        "tokenScopeExporter.openAfterExport": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open the exported file beside the source editor."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "vscode:prepublish": "npm run package",
+    "package": "npm run check-types && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "pretest": "npm run compile-tests",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.3.2",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.97.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.3",
+    "eslint": "^9.39.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.56.1"
+  }
+}

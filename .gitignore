@@ -1,0 +1,8 @@
+.vscode-test/
+*.vsix
+.DS_Store
+dist
+node_modules
+out
+__pycache__
+.pytest_cache
