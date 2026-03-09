@@ -124,8 +124,8 @@ The [scripts/][scripts-dir] directory contains Python utilities for querying exp
 python scripts/token_query.py export.tokens.yaml "interface User"
 ```
 
-[scripts-dir]: https://github.com/Unril/token-scope-exporter/tree/main/scripts
-[scripts-readme]: https://github.com/Unril/token-scope-exporter/blob/main/scripts/README.md
+[scripts-dir]: https://github.com/Unril/token-scope-exporter/tree/master/scripts
+[scripts-readme]: https://github.com/Unril/token-scope-exporter/blob/master/scripts/README.md
 
 ## License
 
