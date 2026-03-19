@@ -1,14 +1,11 @@
 schema: token-scope-export/v1
 note: Semantic tokens come from VS Code built-in semantic-token commands. TextMate scopes are re-tokenized from the contributed grammar.
 positionEncoding: { lines: 1-based, columns: 0-based, endColumn: exclusive }
-exportedAt: 2026-03-09T19:47:48.729Z
+exportedAt: 2026-03-19T20:56:37.770Z
 source:
   languageId: markdown
-  version: 8
-grammar:
-  scopeName: text.html.markdown
-  relativePath: ./syntaxes/markdown.tmLanguage.json
-  extensionId: vscode.markdown
+  version: 1
+grammar: text.html.markdown
 semanticLegend: null
 stats: { lineCount: 79, semanticTokenCount: 0, textmateTokenCount: 344, exportedSegmentCount: 248 }
 lines:
@@ -16,1156 +13,908 @@ lines:
     sourceText: '# Token Export Test'
     segments:
       - text: '#'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.1.markdown ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.1.markdown, punctuation.definition.heading.markdown ] }
       - text: Token Export Test
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.1.markdown ] }
         span: [ 2, 19 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.1.markdown, entity.name.section.markdown ] }
   - lineNumber: 3
     sourceText: 'Inline code: `const x = 42;`'
     segments:
       - text: 'Inline code: '
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 0, 13 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.raw.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.inline.raw.string.markdown ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.raw.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.inline.raw.string.markdown, punctuation.definition.raw.markdown ] }
       - text: const x = 42;
+        textmate: { scope: markup.inline.raw.string.markdown, rest: [ text.html.markdown, meta.paragraph.markdown ] }
         span: [ 14, 27 ]
-        semantic: null
-        textmate: { mostSpecific: markup.inline.raw.string.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.inline.raw.string.markdown ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.raw.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.inline.raw.string.markdown ] }
         span: [ 27, 28 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.raw.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.inline.raw.string.markdown, punctuation.definition.raw.markdown ] }
   - lineNumber: 5
     sourceText: '## TypeScript'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: TypeScript
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 13 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 7
     sourceText: '```typescript'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: typescript
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 13 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 8
     sourceText: interface User {
     segments:
       - text: interface
+        textmate: { scope: storage.type.interface.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 0, 9 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.interface.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, storage.type.interface.ts ] }
       - text: User
+        textmate: { scope: entity.name.type.interface.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 10, 14 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.type.interface.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, entity.name.type.interface.ts ] }
       - text: '{'
+        textmate: { scope: punctuation.definition.block.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 15, 16 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, punctuation.definition.block.ts ] }
   - lineNumber: 9
     sourceText: '  id: number;'
     segments:
       - text: id
+        textmate: { scope: variable.object.property.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.definition.property.ts ] }
         span: [ 2, 4 ]
-        semantic: null
-        textmate: { mostSpecific: variable.object.property.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.definition.property.ts, variable.object.property.ts ] }
       - text: ':'
+        textmate: { scope: keyword.operator.type.annotation.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts ] }
         span: [ 4, 5 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.type.annotation.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts, keyword.operator.type.annotation.ts ] }
       - text: number
+        textmate: { scope: support.type.primitive.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts ] }
         span: [ 6, 12 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.primitive.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts, support.type.primitive.ts ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.statement.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 12, 13 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.statement.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, punctuation.terminator.statement.ts ] }
   - lineNumber: 10
     sourceText: '  name: string;'
     segments:
       - text: name
+        textmate: { scope: variable.object.property.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.definition.property.ts ] }
         span: [ 2, 6 ]
-        semantic: null
-        textmate: { mostSpecific: variable.object.property.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.definition.property.ts, variable.object.property.ts ] }
       - text: ':'
+        textmate: { scope: keyword.operator.type.annotation.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts ] }
         span: [ 6, 7 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.type.annotation.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts, keyword.operator.type.annotation.ts ] }
       - text: string
+        textmate: { scope: support.type.primitive.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts ] }
         span: [ 8, 14 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.primitive.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, meta.field.declaration.ts, meta.type.annotation.ts, support.type.primitive.ts ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.statement.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 14, 15 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.statement.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, punctuation.terminator.statement.ts ] }
   - lineNumber: 11
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: punctuation.definition.block.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.interface.ts, punctuation.definition.block.ts ] }
   - lineNumber: 13
     sourceText: 'function greet(user: User): string {'
     segments:
       - text: function
+        textmate: { scope: storage.type.function.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts ] }
         span: [ 0, 8 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.function.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, storage.type.function.ts ] }
       - text: greet
+        textmate: { scope: entity.name.function.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.definition.function.ts ] }
         span: [ 9, 14 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.definition.function.ts, entity.name.function.ts ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts ] }
         span: [ 14, 15 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, punctuation.definition.parameters.begin.ts ] }
       - text: user
+        textmate: { scope: variable.parameter.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts ] }
         span: [ 15, 19 ]
-        semantic: null
-        textmate: { mostSpecific: variable.parameter.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, variable.parameter.ts ] }
       - text: ':'
+        textmate: { scope: keyword.operator.type.annotation.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, meta.type.annotation.ts ] }
         span: [ 19, 20 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.type.annotation.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, meta.type.annotation.ts, keyword.operator.type.annotation.ts ] }
       - text: User
+        textmate: { scope: entity.name.type.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, meta.type.annotation.ts ] }
         span: [ 21, 25 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.type.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, meta.type.annotation.ts, entity.name.type.ts ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts ] }
         span: [ 25, 26 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.parameters.ts, punctuation.definition.parameters.end.ts ] }
       - text: ':'
+        textmate: { scope: keyword.operator.type.annotation.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.return.type.ts ] }
         span: [ 26, 27 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.type.annotation.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.return.type.ts, keyword.operator.type.annotation.ts ] }
       - text: string
+        textmate: { scope: support.type.primitive.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.return.type.ts ] }
         span: [ 28, 34 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.primitive.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.return.type.ts, support.type.primitive.ts ] }
       - text: '{'
+        textmate: { scope: punctuation.definition.block.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 35, 36 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, punctuation.definition.block.ts ] }
   - lineNumber: 14
     sourceText: '  return `Hello, ${user.name}!`;'
     segments:
       - text: return
+        textmate: { scope: keyword.control.flow.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 2, 8 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.flow.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, keyword.control.flow.ts ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.string.template.begin.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts ] }
         span: [ 9, 10 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.template.begin.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, punctuation.definition.string.template.begin.ts ] }
       - text: 'Hello, '
+        textmate: { scope: string.template.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 10, 17 ]
-        semantic: null
-        textmate: { mostSpecific: string.template.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts ] }
       - text: ${
+        textmate: { scope: punctuation.definition.template-expression.begin.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts ] }
         span: [ 17, 19 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.template-expression.begin.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, punctuation.definition.template-expression.begin.ts ] }
       - text: user
+        textmate: { scope: variable.other.object.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts ] }
         span: [ 19, 23 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.object.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts, variable.other.object.ts ] }
       - text: .
+        textmate: { scope: punctuation.accessor.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts ] }
         span: [ 23, 24 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.accessor.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts, punctuation.accessor.ts ] }
       - text: name
+        textmate: { scope: variable.other.property.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts ] }
         span: [ 24, 28 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.property.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, meta.embedded.line.ts, variable.other.property.ts ] }
       - text: '}'
+        textmate: { scope: punctuation.definition.template-expression.end.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts ] }
         span: [ 28, 29 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.template-expression.end.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, meta.template.expression.ts, punctuation.definition.template-expression.end.ts ] }
       - text: '!'
+        textmate: { scope: string.template.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 29, 30 ]
-        semantic: null
-        textmate: { mostSpecific: string.template.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.string.template.end.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts ] }
         span: [ 30, 31 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.template.end.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, string.template.ts, punctuation.definition.string.template.end.ts ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.statement.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 31, 32 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.statement.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, punctuation.terminator.statement.ts ] }
   - lineNumber: 15
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: punctuation.definition.block.ts, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.ts, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.typescript, meta.function.ts, meta.block.ts, punctuation.definition.block.ts ] }
   - lineNumber: 16
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 18
     sourceText: '## Python'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: Python
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 9 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 20
     sourceText: '```python'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: python
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 9 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 21
     sourceText: 'def factorial(n: int) -> int:'
     segments:
       - text: def
+        textmate: { scope: storage.type.function.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.function.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, storage.type.function.python ] }
       - text: factorial
+        textmate: { scope: entity.name.function.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python ] }
         span: [ 4, 13 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, entity.name.function.python ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python, punctuation.definition.parameters.begin.python ] }
       - text: n
+        textmate: { scope: variable.parameter.function.language.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python ] }
         span: [ 14, 15 ]
-        semantic: null
-        textmate: { mostSpecific: variable.parameter.function.language.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python, variable.parameter.function.language.python ] }
       - text: ':'
+        textmate: { scope: punctuation.separator.annotation.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python ] }
         span: [ 15, 16 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.annotation.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python, punctuation.separator.annotation.python ] }
       - text: int
+        textmate: { scope: support.type.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python ] }
         span: [ 17, 20 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python, support.type.python ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python ] }
         span: [ 20, 21 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, meta.function.parameters.python, punctuation.definition.parameters.end.python ] }
       - text: ->
+        textmate: { scope: punctuation.separator.annotation.result.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python ] }
         span: [ 22, 24 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.annotation.result.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, punctuation.separator.annotation.result.python ] }
       - text: int
+        textmate: { scope: support.type.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python ] }
         span: [ 25, 28 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, support.type.python ] }
       - text: ':'
+        textmate: { scope: punctuation.section.function.begin.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python ] }
         span: [ 28, 29 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.section.function.begin.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function.python, punctuation.section.function.begin.python ] }
   - lineNumber: 22
     sourceText: '    if n <= 1:'
     segments:
       - text: if
+        textmate: { scope: keyword.control.flow.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 4, 6 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.flow.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, keyword.control.flow.python ] }
       - text: n
+        textmate: { scope: meta.embedded.block.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 7, 8 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
       - text: <=
+        textmate: { scope: keyword.operator.comparison.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 9, 11 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.comparison.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, keyword.operator.comparison.python ] }
       - text: '1'
+        textmate: { scope: constant.numeric.dec.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 12, 13 ]
-        semantic: null
-        textmate: { mostSpecific: constant.numeric.dec.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, constant.numeric.dec.python ] }
       - text: ':'
+        textmate: { scope: punctuation.separator.colon.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.colon.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, punctuation.separator.colon.python ] }
   - lineNumber: 23
     sourceText: '        return 1'
     segments:
       - text: return
+        textmate: { scope: keyword.control.flow.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 8, 14 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.flow.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, keyword.control.flow.python ] }
       - text: '1'
+        textmate: { scope: constant.numeric.dec.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 15, 16 ]
-        semantic: null
-        textmate: { mostSpecific: constant.numeric.dec.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, constant.numeric.dec.python ] }
   - lineNumber: 24
     sourceText: '    return n * factorial(n - 1)'
     segments:
       - text: return
+        textmate: { scope: keyword.control.flow.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 4, 10 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.flow.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, keyword.control.flow.python ] }
       - text: n
+        textmate: { scope: meta.embedded.block.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 11, 12 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
       - text: '*'
+        textmate: { scope: keyword.operator.arithmetic.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.arithmetic.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, keyword.operator.arithmetic.python ] }
       - text: factorial
+        textmate: { scope: meta.function-call.generic.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python ] }
         span: [ 15, 24 ]
-        semantic: null
-        textmate: { mostSpecific: meta.function-call.generic.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.generic.python ] }
       - text: (
+        textmate: { scope: punctuation.definition.arguments.begin.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python ] }
         span: [ 24, 25 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.arguments.begin.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, punctuation.definition.arguments.begin.python ] }
       - text: n
+        textmate: { scope: meta.function-call.arguments.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python ] }
         span: [ 25, 26 ]
-        semantic: null
-        textmate: { mostSpecific: meta.function-call.arguments.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.arguments.python ] }
       - text: '-'
+        textmate: { scope: keyword.operator.arithmetic.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.arguments.python ] }
         span: [ 27, 28 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.arithmetic.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.arguments.python, keyword.operator.arithmetic.python ] }
       - text: '1'
+        textmate: { scope: constant.numeric.dec.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.arguments.python ] }
         span: [ 29, 30 ]
-        semantic: null
-        textmate: { mostSpecific: constant.numeric.dec.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, meta.function-call.arguments.python, constant.numeric.dec.python ] }
       - text: )
+        textmate: { scope: punctuation.definition.arguments.end.python, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python ] }
         span: [ 30, 31 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.arguments.end.python, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.python, meta.function-call.python, punctuation.definition.arguments.end.python ] }
   - lineNumber: 25
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 27
     sourceText: '## JSON'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: JSON
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 7 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 29
     sourceText: '```json'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: json
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 7 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 30
     sourceText: '{'
     segments:
       - text: '{'
+        textmate: { scope: punctuation.definition.dictionary.begin.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.dictionary.begin.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, punctuation.definition.dictionary.begin.json ] }
   - lineNumber: 31
     sourceText: '  "name": "token-scope-exporter",'
     segments:
       - text: '"'
+        textmate: { scope: punctuation.support.type.property-name.begin.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
         span: [ 2, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.support.type.property-name.begin.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json, punctuation.support.type.property-name.begin.json ] }
       - text: name
+        textmate: { scope: support.type.property-name.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json ] }
         span: [ 3, 7 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.property-name.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
       - text: '"'
+        textmate: { scope: punctuation.support.type.property-name.end.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
         span: [ 7, 8 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.support.type.property-name.end.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json, punctuation.support.type.property-name.end.json ] }
       - text: ':'
+        textmate: { scope: punctuation.separator.dictionary.key-value.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json ] }
         span: [ 8, 9 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.dictionary.key-value.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, punctuation.separator.dictionary.key-value.json ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
         span: [ 10, 11 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json, punctuation.definition.string.begin.json ] }
       - text: token-scope-exporter
+        textmate: { scope: string.quoted.double.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json ] }
         span: [ 11, 31 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
         span: [ 31, 32 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json, punctuation.definition.string.end.json ] }
       - text: ','
+        textmate: { scope: punctuation.separator.dictionary.pair.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json ] }
         span: [ 32, 33 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.dictionary.pair.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, punctuation.separator.dictionary.pair.json ] }
   - lineNumber: 32
     sourceText: '  "version": "0.0.1"'
     segments:
       - text: '"'
+        textmate: { scope: punctuation.support.type.property-name.begin.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
         span: [ 2, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.support.type.property-name.begin.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json, punctuation.support.type.property-name.begin.json ] }
       - text: version
+        textmate: { scope: support.type.property-name.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json ] }
         span: [ 3, 10 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.property-name.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
       - text: '"'
+        textmate: { scope: punctuation.support.type.property-name.end.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json ] }
         span: [ 10, 11 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.support.type.property-name.end.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, string.json, support.type.property-name.json, punctuation.support.type.property-name.end.json ] }
       - text: ':'
+        textmate: { scope: punctuation.separator.dictionary.key-value.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json ] }
         span: [ 11, 12 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.dictionary.key-value.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, punctuation.separator.dictionary.key-value.json ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json, punctuation.definition.string.begin.json ] }
       - text: 0.0.1
+        textmate: { scope: string.quoted.double.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json ] }
         span: [ 14, 19 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json ] }
         span: [ 19, 20 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, meta.structure.dictionary.value.json, string.quoted.double.json, punctuation.definition.string.end.json ] }
   - lineNumber: 33
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: punctuation.definition.dictionary.end.json, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.dictionary.end.json, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.json, meta.structure.dictionary.json, punctuation.definition.dictionary.end.json ] }
   - lineNumber: 34
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 36
     sourceText: '## Kotlin'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: Kotlin
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 9 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 38
     sourceText: '```kotlin'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: kotlin
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 9 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 39
     sourceText: 'data class User(val id: Long, val name: String)'
     segments:
       - text: data
+        textmate: { scope: storage.modifier.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 0, 4 ]
-        semantic: null
-        textmate: { mostSpecific: storage.modifier.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.modifier.kotlin ] }
       - text: class
+        textmate: { scope: storage.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 5, 10 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin ] }
       - text: ' User('
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 10, 16 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: val
+        textmate: { scope: storage.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 16, 19 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin ] }
       - text: ' id'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 19, 22 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: ':'
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 22, 23 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, keyword.operator.kotlin ] }
       - text: Long
+        textmate: { scope: support.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 24, 28 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, support.type.kotlin ] }
       - text: ', '
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 28, 30 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: val
+        textmate: { scope: storage.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 30, 33 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin ] }
       - text: ' name'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 33, 38 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: ':'
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 38, 39 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, keyword.operator.kotlin ] }
       - text: String
+        textmate: { scope: support.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 40, 46 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, support.type.kotlin ] }
       - text: )
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 46, 47 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
   - lineNumber: 41
     sourceText: 'fun greet(user: User): String = "Hello, ${user.name}!"'
     segments:
       - text: fun
+        textmate: { scope: storage.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin ] }
       - text: ' greet(user'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 14 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: ':'
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 14, 15 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, keyword.operator.kotlin ] }
       - text: ' User)'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 15, 21 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: ':'
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 21, 22 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, keyword.operator.kotlin ] }
       - text: String
+        textmate: { scope: support.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 23, 29 ]
-        semantic: null
-        textmate: { mostSpecific: support.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, support.type.kotlin ] }
       - text: =
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 30, 31 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, keyword.operator.kotlin ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 32, 33 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, punctuation.definition.string.begin.kotlin ] }
       - text: 'Hello, '
+        textmate: { scope: string.quoted.double.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 33, 40 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
       - text: ${
+        textmate: { scope: variable.other.interpolated.expression.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 40, 42 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.interpolated.expression.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin ] }
       - text: user
+        textmate: { scope: variable.other.interpolated.expression.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 42, 46 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.interpolated.expression.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin ] }
       - text: .
+        textmate: { scope: keyword.operator.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin ] }
         span: [ 46, 47 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin, keyword.operator.kotlin ] }
       - text: name
+        textmate: { scope: variable.other.interpolated.expression.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 47, 51 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.interpolated.expression.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin ] }
       - text: '}'
+        textmate: { scope: variable.other.interpolated.expression.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 51, 52 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.interpolated.expression.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, variable.other.interpolated.expression.kotlin ] }
       - text: '!'
+        textmate: { scope: string.quoted.double.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 52, 53 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 53, 54 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, punctuation.definition.string.end.kotlin ] }
   - lineNumber: 42
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 44
     sourceText: '## Java'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: Java
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 7 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 46
     sourceText: '```java'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: java
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 7 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 47
     sourceText: public record User(long id, String name) {}
     segments:
       - text: public
+        textmate: { scope: storage.modifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java ] }
         span: [ 0, 6 ]
-        semantic: null
-        textmate: { mostSpecific: storage.modifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, storage.modifier.java ] }
       - text: record
+        textmate: { scope: storage.modifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 7, 13 ]
-        semantic: null
-        textmate: { mostSpecific: storage.modifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, storage.modifier.java ] }
       - text: User
+        textmate: { scope: entity.name.type.record.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 14, 18 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.type.record.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, entity.name.type.record.java ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 18, 19 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, punctuation.definition.parameters.begin.bracket.round.java ] }
       - text: long
+        textmate: { scope: storage.type.primitive.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 19, 23 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.primitive.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, storage.type.primitive.java ] }
       - text: ' id'
+        textmate: { scope: meta.record.identifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java ] }
         span: [ 23, 26 ]
-        semantic: null
-        textmate: { mostSpecific: meta.record.identifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
       - text: ','
+        textmate: { scope: punctuation.separator.delimiter.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 26, 27 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.delimiter.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, punctuation.separator.delimiter.java ] }
       - text: String
+        textmate: { scope: storage.type.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 28, 34 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, storage.type.java ] }
       - text: ' name'
+        textmate: { scope: meta.record.identifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java ] }
         span: [ 34, 39 ]
-        semantic: null
-        textmate: { mostSpecific: meta.record.identifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java ] }
         span: [ 39, 40 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.identifier.java, punctuation.definition.parameters.end.bracket.round.java ] }
       - text: '{'
+        textmate: { scope: punctuation.section.class.begin.bracket.curly.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.body.java ] }
         span: [ 41, 42 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.section.class.begin.bracket.curly.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, meta.record.body.java, punctuation.section.class.begin.bracket.curly.java ] }
       - text: '}'
+        textmate: { scope: punctuation.section.class.end.bracket.curly.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java ] }
         span: [ 42, 43 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.section.class.end.bracket.curly.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.record.java, punctuation.section.class.end.bracket.curly.java ] }
   - lineNumber: 49
     sourceText: public static String greet(User user) {
     segments:
       - text: public
+        textmate: { scope: storage.modifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 0, 6 ]
-        semantic: null
-        textmate: { mostSpecific: storage.modifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, storage.modifier.java ] }
       - text: static
+        textmate: { scope: storage.modifier.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 7, 13 ]
-        semantic: null
-        textmate: { mostSpecific: storage.modifier.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, storage.modifier.java ] }
       - text: String
+        textmate: { scope: storage.type.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 14, 20 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, storage.type.java ] }
       - text: greet
+        textmate: { scope: entity.name.function.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java ] }
         span: [ 21, 26 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java, entity.name.function.java ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java ] }
         span: [ 26, 27 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java, punctuation.definition.parameters.begin.bracket.round.java ] }
       - text: User
+        textmate: { scope: storage.type.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java ] }
         span: [ 27, 31 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java, storage.type.java ] }
       - text: ' user'
+        textmate: { scope: meta.function-call.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 31, 36 ]
-        semantic: null
-        textmate: { mostSpecific: meta.function-call.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java ] }
         span: [ 36, 37 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.function-call.java, punctuation.definition.parameters.end.bracket.round.java ] }
       - text: '{'
+        textmate: { scope: punctuation.section.block.begin.bracket.curly.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 38, 39 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.section.block.begin.bracket.curly.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, punctuation.section.block.begin.bracket.curly.java ] }
   - lineNumber: 50
     sourceText: '    return "Hello, " + user.name() + "!";'
     segments:
       - text: return
+        textmate: { scope: keyword.control.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 4, 10 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, keyword.control.java ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
         span: [ 11, 12 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java, punctuation.definition.string.begin.java ] }
       - text: 'Hello, '
+        textmate: { scope: string.quoted.double.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 12, 19 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
         span: [ 19, 20 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java, punctuation.definition.string.end.java ] }
       - text: +
+        textmate: { scope: keyword.operator.arithmetic.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 21, 22 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.arithmetic.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, keyword.operator.arithmetic.java ] }
       - text: user
+        textmate: { scope: variable.other.object.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 23, 27 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.object.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, variable.other.object.java ] }
       - text: .
+        textmate: { scope: punctuation.separator.period.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java ] }
         span: [ 27, 28 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.separator.period.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java, punctuation.separator.period.java ] }
       - text: name
+        textmate: { scope: entity.name.function.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java ] }
         span: [ 28, 32 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java, entity.name.function.java ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java ] }
         span: [ 32, 33 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java, punctuation.definition.parameters.begin.bracket.round.java ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.bracket.round.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java ] }
         span: [ 33, 34 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.bracket.round.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, meta.method-call.java, punctuation.definition.parameters.end.bracket.round.java ] }
       - text: +
+        textmate: { scope: keyword.operator.arithmetic.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 35, 36 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.arithmetic.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, keyword.operator.arithmetic.java ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
         span: [ 37, 38 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java, punctuation.definition.string.begin.java ] }
       - text: '!'
+        textmate: { scope: string.quoted.double.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 38, 39 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java ] }
         span: [ 39, 40 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, string.quoted.double.java, punctuation.definition.string.end.java ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 40, 41 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, punctuation.terminator.java ] }
   - lineNumber: 51
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: punctuation.section.block.end.bracket.curly.java, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.section.block.end.bracket.curly.java, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.java, punctuation.section.block.end.bracket.curly.java ] }
   - lineNumber: 52
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 54
     sourceText: '## JavaScript'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: JavaScript
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 13 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 56
     sourceText: '```javascript'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: javascript
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 13 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 57
     sourceText: function greet(user) {
     segments:
       - text: function
+        textmate: { scope: storage.type.function.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js ] }
         span: [ 0, 8 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.function.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, storage.type.function.js ] }
       - text: greet
+        textmate: { scope: entity.name.function.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.definition.function.js ] }
         span: [ 9, 14 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.definition.function.js, entity.name.function.js ] }
       - text: (
+        textmate: { scope: punctuation.definition.parameters.begin.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js ] }
         span: [ 14, 15 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.begin.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js, punctuation.definition.parameters.begin.js ] }
       - text: user
+        textmate: { scope: variable.parameter.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js ] }
         span: [ 15, 19 ]
-        semantic: null
-        textmate: { mostSpecific: variable.parameter.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js, variable.parameter.js ] }
       - text: )
+        textmate: { scope: punctuation.definition.parameters.end.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js ] }
         span: [ 19, 20 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.parameters.end.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.parameters.js, punctuation.definition.parameters.end.js ] }
       - text: '{'
+        textmate: { scope: punctuation.definition.block.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 21, 22 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, punctuation.definition.block.js ] }
   - lineNumber: 58
     sourceText: '  return `Hello, ${user.name}!`;'
     segments:
       - text: return
+        textmate: { scope: keyword.control.flow.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 2, 8 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.control.flow.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, keyword.control.flow.js ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.string.template.begin.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js ] }
         span: [ 9, 10 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.template.begin.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, punctuation.definition.string.template.begin.js ] }
       - text: 'Hello, '
+        textmate: { scope: string.template.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 10, 17 ]
-        semantic: null
-        textmate: { mostSpecific: string.template.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js ] }
       - text: ${
+        textmate: { scope: punctuation.definition.template-expression.begin.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js ] }
         span: [ 17, 19 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.template-expression.begin.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, punctuation.definition.template-expression.begin.js ] }
       - text: user
+        textmate: { scope: variable.other.object.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js ] }
         span: [ 19, 23 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.object.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js, variable.other.object.js ] }
       - text: .
+        textmate: { scope: punctuation.accessor.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js ] }
         span: [ 23, 24 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.accessor.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js, punctuation.accessor.js ] }
       - text: name
+        textmate: { scope: variable.other.property.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js ] }
         span: [ 24, 28 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.property.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, meta.embedded.line.js, variable.other.property.js ] }
       - text: '}'
+        textmate: { scope: punctuation.definition.template-expression.end.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js ] }
         span: [ 28, 29 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.template-expression.end.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, meta.template.expression.js, punctuation.definition.template-expression.end.js ] }
       - text: '!'
+        textmate: { scope: string.template.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 29, 30 ]
-        semantic: null
-        textmate: { mostSpecific: string.template.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js ] }
       - text: '`'
+        textmate: { scope: punctuation.definition.string.template.end.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js ] }
         span: [ 30, 31 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.template.end.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, string.template.js, punctuation.definition.string.template.end.js ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.statement.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 31, 32 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.statement.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, punctuation.terminator.statement.js ] }
   - lineNumber: 59
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: punctuation.definition.block.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.block.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.function.js, meta.block.js, punctuation.definition.block.js ] }
   - lineNumber: 61
     sourceText: const admins = users.filter(u => u.role === 'admin');
     segments:
       - text: const
+        textmate: { scope: storage.type.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 0, 5 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, storage.type.js ] }
       - text: admins
+        textmate: { scope: variable.other.constant.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.var-single-variable.expr.js, meta.definition.variable.js ] }
         span: [ 6, 12 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.constant.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.var-single-variable.expr.js, meta.definition.variable.js, variable.other.constant.js ] }
       - text: =
+        textmate: { scope: keyword.operator.assignment.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 13, 14 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.assignment.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, keyword.operator.assignment.js ] }
       - text: users
+        textmate: { scope: variable.other.object.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js ] }
         span: [ 15, 20 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.object.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js, variable.other.object.js ] }
       - text: .
+        textmate: { scope: punctuation.accessor.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js ] }
         span: [ 20, 21 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.accessor.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js, punctuation.accessor.js ] }
       - text: filter
+        textmate: { scope: entity.name.function.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js ] }
         span: [ 21, 27 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.function.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.function-call.js, entity.name.function.js ] }
       - text: (
+        textmate: { scope: meta.brace.round.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 27, 28 ]
-        semantic: null
-        textmate: { mostSpecific: meta.brace.round.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.brace.round.js ] }
       - text: u
+        textmate: { scope: variable.parameter.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.arrow.js ] }
         span: [ 28, 29 ]
-        semantic: null
-        textmate: { mostSpecific: variable.parameter.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.arrow.js, variable.parameter.js ] }
       - text: =>
+        textmate: { scope: storage.type.function.arrow.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.arrow.js ] }
         span: [ 30, 32 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.function.arrow.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.arrow.js, storage.type.function.arrow.js ] }
       - text: u
+        textmate: { scope: variable.other.object.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 33, 34 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.object.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, variable.other.object.js ] }
       - text: .
+        textmate: { scope: punctuation.accessor.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 34, 35 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.accessor.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, punctuation.accessor.js ] }
       - text: role
+        textmate: { scope: variable.other.property.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 35, 39 ]
-        semantic: null
-        textmate: { mostSpecific: variable.other.property.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, variable.other.property.js ] }
       - text: ===
+        textmate: { scope: keyword.operator.comparison.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 40, 43 ]
-        semantic: null
-        textmate: { mostSpecific: keyword.operator.comparison.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, keyword.operator.comparison.js ] }
       - text: "'"
+        textmate: { scope: punctuation.definition.string.begin.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, string.quoted.single.js ] }
         span: [ 44, 45 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, string.quoted.single.js, punctuation.definition.string.begin.js ] }
       - text: admin
+        textmate: { scope: string.quoted.single.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 45, 50 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.single.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, string.quoted.single.js ] }
       - text: "'"
+        textmate: { scope: punctuation.definition.string.end.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, string.quoted.single.js ] }
         span: [ 50, 51 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, string.quoted.single.js, punctuation.definition.string.end.js ] }
       - text: )
+        textmate: { scope: meta.brace.round.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js ] }
         span: [ 51, 52 ]
-        semantic: null
-        textmate: { mostSpecific: meta.brace.round.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, meta.var.expr.js, meta.brace.round.js ] }
       - text: ;
+        textmate: { scope: punctuation.terminator.statement.js, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript ] }
         span: [ 52, 53 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.terminator.statement.js, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.javascript, punctuation.terminator.statement.js ] }
   - lineNumber: 62
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 64
     sourceText: '## Plain text'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: Plain text
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 13 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 66
     sourceText: No code here, just a paragraph with **bold** and *italic* text.
     segments:
       - text: 'No code here, just a paragraph with '
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 0, 36 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
       - text: '**'
+        textmate: { scope: punctuation.definition.bold.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.bold.markdown ] }
         span: [ 36, 38 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.bold.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.bold.markdown, punctuation.definition.bold.markdown ] }
       - text: bold
+        textmate: { scope: markup.bold.markdown, rest: [ text.html.markdown, meta.paragraph.markdown ] }
         span: [ 38, 42 ]
-        semantic: null
-        textmate: { mostSpecific: markup.bold.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.bold.markdown ] }
       - text: '**'
+        textmate: { scope: punctuation.definition.bold.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.bold.markdown ] }
         span: [ 42, 44 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.bold.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.bold.markdown, punctuation.definition.bold.markdown ] }
       - text: ' and '
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 44, 49 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
       - text: '*'
+        textmate: { scope: punctuation.definition.italic.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.italic.markdown ] }
         span: [ 49, 50 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.italic.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.italic.markdown, punctuation.definition.italic.markdown ] }
       - text: italic
+        textmate: { scope: markup.italic.markdown, rest: [ text.html.markdown, meta.paragraph.markdown ] }
         span: [ 50, 56 ]
-        semantic: null
-        textmate: { mostSpecific: markup.italic.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.italic.markdown ] }
       - text: '*'
+        textmate: { scope: punctuation.definition.italic.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, markup.italic.markdown ] }
         span: [ 56, 57 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.italic.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, markup.italic.markdown, punctuation.definition.italic.markdown ] }
       - text: ' text.'
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 57, 63 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
   - lineNumber: 68
     sourceText: '## Mixed'
     segments:
       - text: '##'
+        textmate: { scope: punctuation.definition.heading.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 0, 2 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.heading.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, punctuation.definition.heading.markdown ] }
       - text: Mixed
+        textmate: { scope: entity.name.section.markdown, rest: [ text.html.markdown, markup.heading.markdown, heading.2.markdown ] }
         span: [ 3, 8 ]
-        semantic: null
-        textmate: { mostSpecific: entity.name.section.markdown, scopes: [ text.html.markdown, markup.heading.markdown, heading.2.markdown, entity.name.section.markdown ] }
   - lineNumber: 70
     sourceText: Some text before.
     segments:
       - text: Some text before.
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 0, 17 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
   - lineNumber: 72
     sourceText: '```kotlin'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
       - text: kotlin
+        textmate: { scope: fenced_code.block.language.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 9 ]
-        semantic: null
-        textmate: { mostSpecific: fenced_code.block.language.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, fenced_code.block.language.markdown ] }
   - lineNumber: 73
     sourceText: fun main() {
     segments:
       - text: fun
+        textmate: { scope: storage.type.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: storage.type.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin ] }
       - text: ' main() {'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 3, 12 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
   - lineNumber: 74
     sourceText: '    println("Hello Kotlin")'
     segments:
       - text: '    println('
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 12 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.begin.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 12, 13 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.begin.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, punctuation.definition.string.begin.kotlin ] }
       - text: Hello Kotlin
+        textmate: { scope: string.quoted.double.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
         span: [ 13, 25 ]
-        semantic: null
-        textmate: { mostSpecific: string.quoted.double.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
       - text: '"'
+        textmate: { scope: punctuation.definition.string.end.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin ] }
         span: [ 25, 26 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.string.end.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, string.quoted.double.kotlin, punctuation.definition.string.end.kotlin ] }
       - text: )
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 26, 27 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
   - lineNumber: 75
     sourceText: '}'
     segments:
       - text: '}'
+        textmate: { scope: meta.embedded.block.kotlin, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 1 ]
-        semantic: null
-        textmate: { mostSpecific: meta.embedded.block.kotlin, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin ] }
   - lineNumber: 76
     sourceText: '```'
     segments:
       - text: '```'
+        textmate: { scope: punctuation.definition.markdown, rest: [ text.html.markdown, markup.fenced_code.block.markdown ] }
         span: [ 0, 3 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.markdown, scopes: [ text.html.markdown, markup.fenced_code.block.markdown, punctuation.definition.markdown ] }
   - lineNumber: 78
     sourceText: Some text after with a [test link](https://example.com).
     segments:
       - text: 'Some text after with a '
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 0, 23 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }
       - text: '['
+        textmate: { scope: punctuation.definition.link.title.begin.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 23, 24 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.link.title.begin.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, punctuation.definition.link.title.begin.markdown ] }
       - text: test link
+        textmate: { scope: string.other.link.title.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 24, 33 ]
-        semantic: null
-        textmate: { mostSpecific: string.other.link.title.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, string.other.link.title.markdown ] }
       - text: ']'
+        textmate: { scope: punctuation.definition.link.title.end.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 33, 34 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.link.title.end.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, punctuation.definition.link.title.end.markdown ] }
       - text: (
+        textmate: { scope: punctuation.definition.metadata.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 34, 35 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.metadata.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, punctuation.definition.metadata.markdown ] }
       - text: https://example.com
+        textmate: { scope: markup.underline.link.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 35, 54 ]
-        semantic: null
-        textmate: { mostSpecific: markup.underline.link.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, markup.underline.link.markdown ] }
       - text: )
+        textmate: { scope: punctuation.definition.metadata.markdown, rest: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown ] }
         span: [ 54, 55 ]
-        semantic: null
-        textmate: { mostSpecific: punctuation.definition.metadata.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown, meta.link.inline.markdown, punctuation.definition.metadata.markdown ] }
       - text: .
+        textmate: { scope: meta.paragraph.markdown, rest: [ text.html.markdown ] }
         span: [ 55, 56 ]
-        semantic: null
-        textmate: { mostSpecific: meta.paragraph.markdown, scopes: [ text.html.markdown, meta.paragraph.markdown ] }

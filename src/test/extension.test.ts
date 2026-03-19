@@ -189,18 +189,18 @@ suite("buildSegmentsFromBoundaries", () => {
       modifiers: ["declaration"],
     });
     assert.deepStrictEqual(result[0].textmate, {
-      mostSpecific: "storage.type.ts",
-      scopes: ["source.ts", "storage.type.ts"],
+      scope: "storage.type.ts",
+      rest: ["source.ts"],
     });
   });
 
-  test("sets semantic to null when no semantic token covers the span", () => {
+  test("omits semantic when no semantic token covers the span", () => {
     const textmate: DecodedTextMateToken[] = [{ line: 0, startChar: 0, endChar: 5, scopes: ["source.ts"] }];
 
     const result = buildSegmentsFromBoundaries("const", [0, 5], [], textmate, false);
 
     assert.strictEqual(result.length, 1);
-    assert.strictEqual(result[0].semantic, null);
+    assert.strictEqual(result[0].semantic, undefined);
     assert.ok(result[0].textmate !== null);
   });
 
@@ -220,6 +220,35 @@ suite("buildSegmentsFromBoundaries", () => {
 
     assert.strictEqual(result.length, 1);
     assert.strictEqual(result[0].text, "foo");
+  });
+
+  test("omits span when includeSpan is false", () => {
+    const textmate: DecodedTextMateToken[] = [{ line: 0, startChar: 0, endChar: 3, scopes: ["source.ts"] }];
+
+    const result = buildSegmentsFromBoundaries("foo", [0, 3], [], textmate, false, false);
+
+    assert.strictEqual(result.length, 1);
+    assert.strictEqual(result[0].span, undefined);
+  });
+
+  test("includes span when includeSpan is true", () => {
+    const textmate: DecodedTextMateToken[] = [{ line: 0, startChar: 0, endChar: 3, scopes: ["source.ts"] }];
+
+    const result = buildSegmentsFromBoundaries("foo", [0, 3], [], textmate, false, true);
+
+    assert.strictEqual(result.length, 1);
+    assert.deepStrictEqual(result[0].span, [0, 3]);
+  });
+
+  test("omits modifiers key when semantic token has no modifiers", () => {
+    const semantic: DecodedSemanticToken[] = [
+      { line: 0, startChar: 0, endChar: 3, type: "variable", modifiers: [] },
+    ];
+
+    const result = buildSegmentsFromBoundaries("foo", [0, 3], semantic, [], false);
+
+    assert.strictEqual(result.length, 1);
+    assert.deepStrictEqual(result[0].semantic, { type: "variable" });
   });
 });
 

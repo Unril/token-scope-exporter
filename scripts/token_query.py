@@ -44,7 +44,9 @@ def load_export(path: Path) -> TokenExport:
     return data
 
 
-def _parse_segment(seg: dict[str, Any], line_number: int, source_text: str) -> TokenSegment:
+def _parse_segment(
+    seg: dict[str, Any], line_number: int, source_text: str
+) -> TokenSegment:
     tm = seg.get("textmate")
     sem = seg.get("semantic")
     span_raw = seg["span"]
@@ -55,8 +57,10 @@ def _parse_segment(seg: dict[str, Any], line_number: int, source_text: str) -> T
         span=(int(span_raw[0]), int(span_raw[1])),
         semantic_type=str(sem["type"]) if sem and sem.get("type") else None,
         semantic_modifiers=tuple(sem.get("modifiers", ())) if sem else (),
-        textmate_most_specific=str(tm["mostSpecific"]) if tm else None,
-        textmate_scopes=tuple(str(s) for s in tm.get("scopes", ())) if tm else (),
+        textmate_most_specific=str(tm["scope"])
+        if tm and tm.get("scope") is not None
+        else None,
+        textmate_scopes=tuple(str(s) for s in tm.get("rest", ())) if tm else (),
     )
 
 
@@ -86,7 +90,9 @@ def query_snippet(data: TokenExport, snippet: str) -> list[TokenSegment]:
 def query_scope(data: TokenExport, scope_pattern: str) -> list[TokenSegment]:
     """Find segments whose textmate mostSpecific scope contains the pattern."""
     return [
-        seg for seg in all_segments(data) if seg.textmate_most_specific and scope_pattern in seg.textmate_most_specific
+        seg
+        for seg in all_segments(data)
+        if seg.textmate_most_specific and scope_pattern in seg.textmate_most_specific
     ]
 
 
@@ -112,7 +118,9 @@ def main() -> None:
     parser.add_argument("file", type=Path, help=".tokens.yaml file to query")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("snippet", nargs="?", help="substring to match in source lines")
-    group.add_argument("--scope", help="substring to match in textmate mostSpecific scope")
+    group.add_argument(
+        "--scope", help="substring to match in textmate mostSpecific scope"
+    )
     args = parser.parse_args()
 
     data = load_export(args.file)

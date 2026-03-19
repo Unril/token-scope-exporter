@@ -34,17 +34,14 @@ TypeScript:
   sourceText: 'function greet(user: User): string {'
   segments:
     - text: function
-      span: [0, 8]
-      semantic: null
-      textmate: {mostSpecific: storage.type.function.ts, scopes: [source.ts, meta.function.ts, storage.type.function.ts]}
+      semantic: {type: keyword, modifiers: [declaration]}
+      textmate: {scope: storage.type.function.ts, rest: [source.ts, meta.function.ts]}
     - text: greet
-      span: [9, 14]
       semantic: {type: function, modifiers: [declaration]}
-      textmate: {mostSpecific: entity.name.function.ts, scopes: [source.ts, meta.function.ts, meta.definition.function.ts, entity.name.function.ts]}
+      textmate: {scope: entity.name.function.ts, rest: [source.ts, meta.function.ts, meta.definition.function.ts]}
     - text: user
-      span: [15, 19]
       semantic: {type: parameter, modifiers: [declaration]}
-      textmate: {mostSpecific: variable.parameter.ts, scopes: [source.ts, meta.function.ts, meta.parameters.ts, variable.parameter.ts]}
+      textmate: {scope: variable.parameter.ts, rest: [source.ts, meta.function.ts, meta.parameters.ts]}
 ```
 
 Kotlin inside a Markdown fenced block (injection grammars are resolved):
@@ -54,13 +51,9 @@ Kotlin inside a Markdown fenced block (injection grammars are resolved):
   sourceText: 'data class User(val id: Long, val name: String)'
   segments:
     - text: data
-      span: [0, 4]
-      semantic: null
-      textmate: {mostSpecific: storage.modifier.kotlin, scopes: [text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.modifier.kotlin]}
+      textmate: {scope: storage.modifier.kotlin, rest: [text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin]}
     - text: class
-      span: [5, 10]
-      semantic: null
-      textmate: {mostSpecific: storage.type.kotlin, scopes: [text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin, storage.type.kotlin]}
+      textmate: {scope: storage.type.kotlin, rest: [text.html.markdown, markup.fenced_code.block.markdown, meta.embedded.block.kotlin]}
 ```
 
 Markdown prose with bold and a link:
@@ -70,13 +63,9 @@ Markdown prose with bold and a link:
   sourceText: No code here, just a paragraph with **bold** and *italic* text.
   segments:
     - text: '**'
-      span: [36, 38]
-      semantic: null
-      textmate: {mostSpecific: punctuation.definition.bold.markdown, scopes: [text.html.markdown, meta.paragraph.markdown, markup.bold.markdown, punctuation.definition.bold.markdown]}
+      textmate: {scope: punctuation.definition.bold.markdown, rest: [text.html.markdown, meta.paragraph.markdown, markup.bold.markdown]}
     - text: bold
-      span: [38, 42]
-      semantic: null
-      textmate: {mostSpecific: markup.bold.markdown, scopes: [text.html.markdown, meta.paragraph.markdown, markup.bold.markdown]}
+      textmate: {scope: markup.bold.markdown, rest: [text.html.markdown, meta.paragraph.markdown]}
 ```
 
 ## Extension Settings
@@ -86,6 +75,8 @@ Markdown prose with bold and a link:
 | `tokenScopeExporter.outputFormat` | `yaml` | `yaml` or `json` |
 | `tokenScopeExporter.includeWhitespace` | `false` | Include pure-whitespace segments |
 | `tokenScopeExporter.openAfterExport` | `true` | Open the export beside the source editor |
+| `tokenScopeExporter.includeSpan` | `true` | Include character-offset span on each segment |
+| `tokenScopeExporter.includePath` | `true` | Include the file path in source metadata |
 
 ## Requirements
 
@@ -98,6 +89,10 @@ Markdown prose with bold and a link:
 - For languages where VS Code uses Tree-Sitter-based highlighting, the exported TextMate scopes may differ from what the editor visually shows.
 
 ## Release Notes
+
+### 0.0.2
+
+Schema changes and new settings. See [CHANGELOG](CHANGELOG.md) for details.
 
 ### 0.0.1
 

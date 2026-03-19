@@ -2,7 +2,7 @@
   "name": "token-scope-exporter",
   "displayName": "Token Scope Exporter",
   "description": "Export semantic tokens and TextMate scopes for any file as structured YAML or JSON. Built for LLM prompts, theme debugging, and grammar development.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "NikolaiFedorov",
   "repository": {
     "type": "git",
@@ -64,6 +64,16 @@
           "type": "boolean",
           "default": true,
           "description": "Open the exported file beside the source editor."
+        },
+        "tokenScopeExporter.includeSpan": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include the character-offset span [start, end] on each segment."
+        },
+        "tokenScopeExporter.includePath": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include the file path in the source metadata."
         }
       }
     }

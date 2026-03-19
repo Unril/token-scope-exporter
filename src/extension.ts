@@ -38,9 +38,9 @@ export interface DecodedTextMateToken {
 
 export interface ExportSegment {
   text: string;
-  span: [number, number];
-  semantic: { type: string; modifiers: string[] } | null;
-  textmate: { mostSpecific: string | null; scopes: string[] } | null;
+  span?: [number, number];
+  semantic?: { type: string; modifiers?: string[] } | null;
+  textmate: { scope: string | null; rest?: string[] } | null;
 }
 
 export interface ExportLine {
@@ -59,16 +59,11 @@ interface ExportPayload {
   };
   exportedAt: string;
   source: {
-    uri: string;
-    fsPath: string;
+    path?: string;
     languageId: string;
     version: number;
   };
-  grammar: {
-    scopeName: string;
-    relativePath: string;
-    extensionId: string;
-  };
+  grammar: string;
   semanticLegend: {
     tokenTypes: string[];
     tokenModifiers: string[];
@@ -106,23 +101,18 @@ interface SemanticTokenResult {
   semanticTokens: vscode.SemanticTokens | undefined;
 }
 
-async function requestSemanticTokens(
-  uri: vscode.Uri,
-): Promise<SemanticTokenResult> {
+async function requestSemanticTokens(uri: vscode.Uri): Promise<SemanticTokenResult> {
   const [semanticLegend, semanticTokens] = await Promise.all([
     vscode.commands.executeCommand<vscode.SemanticTokensLegend | undefined>(
       "vscode.provideDocumentSemanticTokensLegend",
       uri,
     ),
-    vscode.commands.executeCommand<vscode.SemanticTokens | undefined>(
-      "vscode.provideDocumentSemanticTokens",
-      uri,
-    ),
+    vscode.commands.executeCommand<vscode.SemanticTokens | undefined>("vscode.provideDocumentSemanticTokens", uri),
   ]);
   return { semanticLegend, semanticTokens };
 }
 
-const SEMANTIC_RETRY_DELAY_MS = 2000;
+const SEMANTIC_RETRY_DELAY_MS = 500;
 const SEMANTIC_MAX_RETRIES = 3;
 
 async function fetchSemanticTokens(uri: vscode.Uri): Promise<SemanticTokenResult> {
@@ -153,7 +143,6 @@ async function fetchSemanticTokens(uri: vscode.Uri): Promise<SemanticTokenResult
   return result;
 }
 
-
 async function exportActiveFile(): Promise<void> {
   const editor = vscode.window.activeTextEditor;
   if (!editor) {
@@ -170,6 +159,8 @@ async function exportActiveFile(): Promise<void> {
   const outputFormat = config.get<OutputFormat>("outputFormat", "yaml");
   const includeWhitespace = config.get<boolean>("includeWhitespace", false);
   const openAfterExport = config.get<boolean>("openAfterExport", true);
+  const includeSpan = config.get<boolean>("includeSpan", true);
+  const includePath = config.get<boolean>("includePath", true);
 
   const { semanticLegend, semanticTokens } = await fetchSemanticTokens(document.uri);
 
@@ -182,7 +173,13 @@ async function exportActiveFile(): Promise<void> {
   const decodedSemantic = decodeSemanticTokens(semanticTokens, semanticLegend);
   const decodedTextMate = await tokenizeWithTextMate(document, rootGrammar, grammarIndex);
 
-  const lines = mergeTokensIntoAtomicSegments(document, decodedSemantic, decodedTextMate, includeWhitespace);
+  const lines = mergeTokensIntoAtomicSegments(
+    document,
+    decodedSemantic,
+    decodedTextMate,
+    includeWhitespace,
+    includeSpan,
+  );
 
   const payload = buildPayload({
     document,
@@ -191,6 +188,7 @@ async function exportActiveFile(): Promise<void> {
     decodedSemantic,
     decodedTextMate,
     lines,
+    includePath,
   });
 
   await writeAndOpenExport(document.uri, payload, outputFormat, openAfterExport);
@@ -203,10 +201,18 @@ interface BuildPayloadInput {
   decodedSemantic: DecodedSemanticToken[];
   decodedTextMate: DecodedTextMateToken[];
   lines: ExportLine[];
+  includePath: boolean;
 }
 
 function buildPayload(input: BuildPayloadInput): ExportPayload {
-  const { document, rootGrammar, semanticLegend, decodedSemantic, decodedTextMate, lines } = input;
+  const { document, rootGrammar, semanticLegend, decodedSemantic, decodedTextMate, lines, includePath } = input;
+  const source: ExportPayload["source"] = {
+    languageId: document.languageId,
+    version: document.version,
+  };
+  if (includePath) {
+    source.path = document.uri.fsPath;
+  }
   return {
     schema: "token-scope-export/v1",
     note:
@@ -218,17 +224,8 @@ function buildPayload(input: BuildPayloadInput): ExportPayload {
       endColumn: "exclusive",
     },
     exportedAt: new Date().toISOString(),
-    source: {
-      uri: document.uri.toString(),
-      fsPath: document.uri.fsPath,
-      languageId: document.languageId,
-      version: document.version,
-    },
-    grammar: {
-      scopeName: rootGrammar.scopeName,
-      relativePath: rootGrammar.path,
-      extensionId: rootGrammar.extensionId,
-    },
+    source,
+    grammar: rootGrammar.scopeName,
     semanticLegend: semanticLegend
       ? {
           tokenTypes: [...semanticLegend.tokenTypes],
@@ -273,7 +270,7 @@ function serializeYaml(payload: ExportPayload): string {
     aliasDuplicateObjects: true,
   });
 
-  const flowKeys = new Set(["span", "semantic", "textmate", "positionEncoding", "modifiers", "scopes", "stats"]);
+  const flowKeys = new Set(["span", "semantic", "textmate", "positionEncoding", "modifiers", "rest", "stats"]);
 
   visit(doc, {
     Pair(_, pair) {
@@ -504,6 +501,7 @@ function mergeTokensIntoAtomicSegments(
   semanticTokens: DecodedSemanticToken[],
   textMateTokens: DecodedTextMateToken[],
   includeWhitespace: boolean,
+  includeSpan: boolean,
 ): ExportLine[] {
   const semanticByLine = groupByLine(semanticTokens);
   const textMateByLine = groupByLine(textMateTokens);
@@ -528,7 +526,14 @@ function mergeTokensIntoAtomicSegments(
     }
 
     const sorted = [...boundaries].sort((a, b) => a - b);
-    const segments = buildSegmentsFromBoundaries(sourceText, sorted, semantic, textmate, includeWhitespace);
+    const segments = buildSegmentsFromBoundaries(
+      sourceText,
+      sorted,
+      semantic,
+      textmate,
+      includeWhitespace,
+      includeSpan,
+    );
 
     if (segments.length > 0) {
       lines.push({
@@ -548,6 +553,7 @@ export function buildSegmentsFromBoundaries(
   semantic: DecodedSemanticToken[],
   textmate: DecodedTextMateToken[],
   includeWhitespace: boolean,
+  includeSpan = true,
 ): ExportSegment[] {
   const segments: ExportSegment[] = [];
 
@@ -572,22 +578,28 @@ export function buildSegmentsFromBoundaries(
       continue;
     }
 
-    segments.push({
+    const segment: ExportSegment = {
       text,
-      span: [start, end],
-      semantic: semanticToken
-        ? {
-            type: semanticToken.type,
-            modifiers: semanticToken.modifiers,
-          }
-        : null,
       textmate: textmateToken
         ? {
-            mostSpecific: textmateToken.scopes[textmateToken.scopes.length - 1] ?? null,
-            scopes: textmateToken.scopes,
+            scope: textmateToken.scopes[textmateToken.scopes.length - 1] ?? null,
+            ...(textmateToken.scopes.length > 1 ? { rest: textmateToken.scopes.slice(0, -1) } : {}),
           }
         : null,
-    });
+    };
+
+    if (includeSpan) {
+      segment.span = [start, end];
+    }
+
+    if (semanticToken) {
+      segment.semantic = {
+        type: semanticToken.type,
+        ...(semanticToken.modifiers.length > 0 ? { modifiers: semanticToken.modifiers } : {}),
+      };
+    }
+
+    segments.push(segment);
   }
 
   return segments;
